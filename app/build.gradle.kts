@@ -104,6 +104,13 @@ dependencies {
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    // Mockk
+    testImplementation("io.mockk:mockk:1.12.1")
+
+    // Coroutines Test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 }
 
 kapt {

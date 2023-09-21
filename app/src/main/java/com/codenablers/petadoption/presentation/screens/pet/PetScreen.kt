@@ -81,10 +81,8 @@ fun PetScreen(navController: NavController, petViewModel: PetViewModel) {
 
             is PetsUiState.Success -> {
                 Spacer(modifier = Modifier.height(24.dp))
-                SearchPrettyPet()
-                Spacer(modifier = Modifier.height(24.dp))
                 LazyVerticalStaggeredGrid(
-                    columns = StaggeredGridCells.Adaptive(200.dp),
+                    columns = StaggeredGridCells.Fixed(1),
                     verticalItemSpacing = 4.dp,
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     content = {
@@ -154,37 +152,4 @@ fun HomeTopBar() {
             contentScale = ContentScale.Crop
         )
     }
-}
-
-@Preview
-@Composable
-fun SearchPrettyPet() {
-    var inputText by remember {
-        mutableStateOf("")
-    }
-    OutlinedTextField(
-        value = inputText, onValueChange = {
-            inputText = it
-        }, modifier = Modifier
-            .border(0.dp, color = Color.Transparent)
-            .fillMaxWidth()
-            .padding(horizontal = 18.dp),
-        placeholder = {
-            Text(
-                text = "Search pretty pets...",
-                style = TextStyle(
-                    fontFamily = robotoFamily,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 12.sp,
-                )
-            )
-        }, leadingIcon = {
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.Filled.Search,
-                    contentDescription = null
-                )
-            }
-        }, shape = CircleShape
-    )
 }
