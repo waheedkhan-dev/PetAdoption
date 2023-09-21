@@ -52,6 +52,7 @@ import com.codenablers.petadoption.R
 import com.codenablers.petadoption.components.PetCardComposable
 import com.codenablers.petadoption.presentation.graph.DetailsScreen
 import com.codenablers.petadoption.ui.theme.Blue_Light
+import com.codenablers.petadoption.ui.theme.Chip_Border_Color
 import com.codenablers.petadoption.ui.theme.robotoFamily
 
 @Composable
@@ -69,7 +70,13 @@ fun PetScreen(navController: NavController, petViewModel: PetViewModel) {
         HomeTopBar()
         when (petsUiState) {
             is PetsUiState.Loading -> {
-                CircularProgressIndicator()
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally) {
+                    CircularProgressIndicator()
+                }
             }
 
             is PetsUiState.Success -> {
@@ -128,7 +135,7 @@ fun HomeTopBar() {
             Icon(
                 painter = painterResource(id = R.drawable.baseline_pets_24),
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.secondary
+                tint = Blue_Light
             )
         }
         Text(
@@ -164,11 +171,11 @@ fun SearchPrettyPet() {
             .padding(horizontal = 18.dp),
         placeholder = {
             Text(
-                text = "Search",
+                text = "Search pretty pets...",
                 style = TextStyle(
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp,
+                    fontSize = 12.sp,
                 )
             )
         }, leadingIcon = {
