@@ -44,9 +44,6 @@ fun NavGraphBuilder.detailsNavGraph(
                 navController.previousBackStackEntry?.savedStateHandle?.get<Pets.Hit>("prettyPet")
             prettyPet?.let { PetDetailScreen(navController = navController, it) }
         }
-       /* composable(route = DetailsScreen.PetDetailScreen.route) {
-            PetDetailScreen(navController, "")
-        }*/
     }
 }
 
