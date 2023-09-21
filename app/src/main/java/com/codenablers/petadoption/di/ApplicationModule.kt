@@ -2,6 +2,7 @@ package com.codenablers.petadoption.di
 
 import android.content.Context
 import com.codenablers.petadoption.PetAdoptionApp
+import com.codenablers.petadoption.utils.Constants.API_KEY
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +25,5 @@ object ApplicationModule {
     @Named("apiKey")
     @Singleton
     @Provides
-    fun provideApiKey() : String = "5303976-fd6581ad4ac165d1b75cc15b3"
+    fun provideApiKey(): String = API_KEY
 }
